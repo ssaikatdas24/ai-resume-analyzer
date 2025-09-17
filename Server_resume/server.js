@@ -77,17 +77,17 @@ app.post('/api/analyze', upload.single('resume'), async (req, res) => {
 });
 
 // ... (rest of the API endpoints are unchanged)
-app.post('/api/rewrite', async (req, res) => {
-  const { text } = req.body;
-  if (!text) { return res.status(400).json({ error: 'Text to rewrite is required.' }); }
-  try {
-    const rewrittenText = await rewriteBulletPoint(text);
-    res.json({ rewrittenText });
-  } catch (error) {
-    console.error("Error rewriting text:", error);
-    res.status(500).json({ error: "Failed to rewrite text." });
-  }
-});
+// app.post('/api/rewrite', async (req, res) => {
+//   const { text } = req.body;
+//   if (!text) { return res.status(400).json({ error: 'Text to rewrite is required.' }); }
+//   try {
+//     const rewrittenText = await rewriteBulletPoint(text);
+//     res.json({ rewrittenText });
+//   } catch (error) {
+//     console.error("Error rewriting text:", error);
+//     res.status(500).json({ error: "Failed to rewrite text." });
+//   }
+// });
 app.get('/api/sessions', async (req, res) => {
   try {
     const sessions = await Session.find().sort({ createdAt: -1 }).limit(20);
