@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 export default function HistoryPage() {
   const [sessions, setSessions] = useState([]);
   useEffect(() => {
-    fetch('http://localhost:3001/api/sessions')
+    fetch(`${import.meta.env.VITE_API_BASE_URL}/api/sessions`)
       .then(res => res.json())
       .then(data => setSessions(data));
   }, []);
