@@ -19,7 +19,7 @@ export default function HomePage() {
     formData.append('jobDescription', jobDescription);
 
     try {
-      const response = await fetch('http://localhost:3001/api/analyze', {
+      const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/analyze`, {
         method: 'POST',
         body: formData,
       });

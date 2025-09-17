@@ -11,7 +11,7 @@ export default function SessionPage() {
   useEffect(() => {
     const fetchSession = async () => {
       try {
-        const response = await fetch(`http://localhost:3001/api/session/${id}`);
+        const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/session/${id}`);
         const data = await response.json();
         setSession(data);
       } catch (error) {
@@ -26,7 +26,8 @@ export default function SessionPage() {
   const handleRewrite = async (bullet, index) => {
     setRewriting({ ...rewriting, [index]: true });
     try {
-      const res = await fetch(`http://localhost:3001/api/rewrite`, {
+      const apiUrl = `${import.meta.env.VITE_API_BASE_URL}/api/rewrite`;
+      const res = await fetch(apiUrl, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ text: bullet }),
