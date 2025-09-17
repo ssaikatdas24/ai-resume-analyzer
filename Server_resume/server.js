@@ -10,7 +10,7 @@ import mongoose from 'mongoose';
 // --- Utilities ---
 import { parseResumeText } from './utils/resumeParser.js';
 import { extractKeywords } from './utils/keywordExtractor.js';
-import { calculateSimilarity, rewriteBulletPoint } from './utils/aiHelper.js';
+import { calculateSimilarity } from './utils/aiHelper.js';
 
 // --- Database Model ---
 import Session from './models/Session.js';
